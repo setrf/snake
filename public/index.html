@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <h1>Snake</h1>
+        <div class="scores">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Best: <strong id="best">0</strong></span>
+        </div>
+        <div class="actions desktop-only" aria-label="Game actions">
+          <button id="pauseBtnTop" class="btn btn-outline" aria-label="Pause/Resume">Pause</button>
+          <button id="restartBtnTop" class="btn btn-outline" aria-label="Restart">Restart</button>
+        </div>
+      </header>
+
+      <main class="stage-wrap">
+        <canvas id="stage" width="420" height="420" aria-label="Snake Game" role="img"></canvas>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-content">
+            <h2 id="status">Press Space or Tap</h2>
+            <p id="hint" class="muted">Swipe or use the D‑pad</p>
+            <button id="startBtn" class="btn btn-primary" aria-keyshortcuts="Enter Space R">Start</button>
+            <div class="settings" aria-label="Settings">
+              <div class="row">
+                <span class="muted" style="font-family: 'IBM Plex Mono', ui-monospace, monospace; letter-spacing:.08em; text-transform:uppercase; font-size:12px">Difficulty</span>
+              </div>
+              <div class="row">
+                <button class="btn btn-outline opt-diff" data-diff="easy">Easy</button>
+                <button class="btn btn-outline opt-diff" data-diff="normal">Normal</button>
+                <button class="btn btn-outline opt-diff" data-diff="hard">Hard</button>
+              </div>
+              <div class="row">
+                <button id="wrapBtn" class="btn btn-outline" aria-pressed="false">Wrap: Off</button>
+                <button id="fsBtn" class="btn btn-outline" aria-keyshortcuts="F">Fullscreen (F)</button>
+              </div>
+            </div>
+            <div id="leaderboard"></div>
+          </div>
+        </div>
+      </main>
+
+      <nav class="controls" aria-label="Controls">
+        <div class="dpad">
+          <button class="pad up" aria-label="Up" data-dir="up">▲</button>
+          <div class="mid">
+            <button class="pad left" aria-label="Left" data-dir="left">◀</button>
+            <button class="pad right" aria-label="Right" data-dir="right">▶</button>
+          </div>
+          <button class="pad down" aria-label="Down" data-dir="down">▼</button>
+        </div>
+        <div class="actions">
+          <button id="pauseBtn" class="btn btn-outline" aria-label="Pause/Resume">Pause</button>
+          <button id="restartBtn" class="btn btn-outline" aria-label="Restart">Restart</button>
+        </div>
+      </nav>
+      <div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    </div>
+
+    <div id="onboarding-overlay" class="overlay">
+      <div class="overlay-content">
+        <h2>Welcome to Snake!</h2>
+        <p class="muted">Use the arrow keys or swipe to control the snake. Eat the food to grow, but don't hit the walls or your own tail!</p>
+        <button id="onboarding-close" class="btn btn-primary">Got it!</button>
+      </div>
+    </div>
+
+    <script src="./game.js"></script>
+  </body>
+  </html>
+<!doctype html>
